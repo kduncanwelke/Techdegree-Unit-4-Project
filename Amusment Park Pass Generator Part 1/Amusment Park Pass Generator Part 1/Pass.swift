@@ -10,10 +10,20 @@ import Foundation
 
 // classic pass, base
 class Pass {
-    let rideAccess = true
-    let amusementAccess = true
     let firstName: String
     let lastName: String
+    
+    let rideAccess = true
+    let amusementAccess = true
+    var skipRideLines: Bool { return false }
+    var kitchenAccess: Bool { return false }
+    var rideControlAccess: Bool { return false }
+    var maintenanceAccess: Bool { return false }
+    var officeAccess: Bool { return false }
+    var foodDiscount: Int { return 0 }
+    var merchandiseDiscount: Int { return 0 }
+    
+    var passType: String { return "Classic Pass" }
     
     init(firstName: String, lastName: String) {
         self.firstName = firstName
@@ -22,50 +32,55 @@ class Pass {
 }
 
 // VIP pass
-class VipPass: Pass, SkipLines, Discount {
-    var skipRideLines = true
-    var foodDiscount = 10
-    var merchandiseDiscount = 20
+class VipPass: Pass{
+    override var skipRideLines: Bool { return true }
+    override var foodDiscount: Int { return 10 }
+    override var merchandiseDiscount: Int { return 20 }
+    override var passType: String { return "VIP Pass" }
 }
 
 // free child pass
 class FreeChildPass: Pass {
     // add error handling if birthday is lacking/makes the child older than 5
+     override var passType: String { return "Free Child Pass" }
 }
 
 // food services employee pass
-class FoodServicePass: Pass, FoodService, Discount {
-    var kitchenAccess = true
-    var foodDiscount = 15
-    var merchandiseDiscount = 25
+class FoodServicePass: Pass {
+    override var kitchenAccess: Bool { return true }
+    override var foodDiscount: Int { return 15 }
+    override var merchandiseDiscount: Int { return 25 }
+    override var passType: String { return "Food Services Employee Pass" }
 }
 
 // ride services employee pass
-class RideServicesPass: Pass, RideServices, Discount {
-    var rideControAccess = true
-    var foodDiscount = 15
-    var merchandiseDiscount = 25
+class RideServicesPass: Pass  {
+    override var rideControlAccess: Bool { return true }
+    override var foodDiscount: Int { return 15 }
+    override var merchandiseDiscount: Int { return 25 }
+    override var passType: String { return "Ride Services Employee Pass" }
 }
 
 // maintenance employee pass
-class MaintenancePass: Pass, FoodService, RideServices, Maintenance, Discount {
-    var kitchenAccess = true
-    var rideControAccess = true
-    var maintenanceAccess = true
-    var foodDiscount = 15
-    var merchandiseDiscount = 25
+class MaintenancePass: Pass {
+    override var kitchenAccess: Bool { return true }
+    override var rideControlAccess: Bool { return true }
+    override var maintenanceAccess: Bool { return true }
+    override var foodDiscount: Int { return 15 }
+    override var merchandiseDiscount: Int { return 25 }
+    override var passType: String { return "Maintenance Employee Pass" }
 }
 
 // manager pass
-class ManagerPass: Pass, FoodService, RideServices, Maintenance, Office, Discount {
-    var kitchenAccess = true
-    var rideControAccess = true
-    var maintenanceAccess = true
-    var officeAccess = true
-    var foodDiscount = 25
-    var merchandiseDiscount = 25
+class ManagerPass: Pass {
+    override var officeAccess: Bool { return true }
+    override var kitchenAccess: Bool { return true }
+    override var rideControlAccess: Bool { return true }
+    override var maintenanceAccess: Bool { return true }
+    override var foodDiscount: Int { return 25 }
+    override var merchandiseDiscount: Int { return 25 }
+    override var passType: String { return "Manager Pass" }
 }
-
 
 
 

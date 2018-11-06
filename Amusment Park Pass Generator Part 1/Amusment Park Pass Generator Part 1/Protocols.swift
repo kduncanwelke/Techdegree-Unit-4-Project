@@ -8,27 +8,4 @@
 
 import Foundation
 
-protocol FoodService {
-    var kitchenAccess: Bool { get set }
-}
 
-protocol RideServices {
-    var rideControAccess: Bool { get set }
-}
-
-protocol Maintenance {
-    var maintenanceAccess: Bool { get set }
-}
-
-protocol Office {
-    var officeAccess: Bool { get set }
-}
-
-protocol SkipLines {
-    var skipRideLines: Bool { get set }
-}
-
-protocol Discount {
-    var foodDiscount: Int { get set }
-    var merchandiseDiscount: Int { get set }
-}
