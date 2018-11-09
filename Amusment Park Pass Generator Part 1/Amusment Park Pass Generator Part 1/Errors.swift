@@ -8,9 +8,22 @@
 
 import Foundation
 
+enum RegistrationErrors: Error {
+    case invalidFirstName
+    case invalidLastName
+}
+
 enum GuestRegistrationErrors: Error {
-    case invalidFirstName(description: String)
-    case invalidLastName(description: String)
-    case noFreeChildBirthday(description: String)
-    case invalidFreeChildBirthday(description: String)
+    case invalidFirstName
+    case invalidLastName
+    case noFreeChildBirthday
+    case invalidFreeChildBirthday
+}
+
+enum EmployeeRegistrationErrors: Error {
+    case invalidFirstName
+    case invalidLastName
+    case invalidAddress
+    case invalidCity
+    case invalidState
 }

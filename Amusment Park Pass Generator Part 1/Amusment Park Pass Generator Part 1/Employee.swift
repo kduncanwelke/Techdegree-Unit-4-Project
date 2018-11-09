@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Employee: Entrant {
+class Employee: Entrant, EmployeeRegistration {
+    
     let type: EmployeeType
     let streetAddress: String
     let city: String
@@ -21,7 +22,13 @@ class Employee: Entrant {
         self.city = city
         self.state = state
         self.zipCode = zipCode
+        
         super.init(firstName: firstName, lastName: lastName)
+    }
+    
+    func confirmEntrant(entrant: Employee) throws -> Bool {
+        let errorFree = isSubmissionErrorFree(entrant: entrant)
+        return errorFree
     }
 }
 

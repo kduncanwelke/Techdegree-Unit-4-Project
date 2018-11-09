@@ -9,8 +9,8 @@
 import Foundation
 
 class Entrant {
-    let firstName: String
-    let lastName: String
+    var firstName: String
+    var lastName: String
     
     init(firstName: String, lastName: String) {
         self.firstName = firstName

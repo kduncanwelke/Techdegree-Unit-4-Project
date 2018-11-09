@@ -8,8 +8,9 @@
 
 import Foundation
 
-class Guest: Entrant {
-    let type: GuestType
+class Guest: Entrant, GuestRegistration {
+    
+    var type: GuestType
     var birthday: Date?
     
     init(type: GuestType, birthday: Date? = nil, firstName: String, lastName: String) {
@@ -17,7 +18,13 @@ class Guest: Entrant {
         if let birthday = birthday {
             self.birthday = birthday
         }
+        
         super.init(firstName: firstName, lastName: lastName)
+    }
+    
+    func confirmEntrant(entrant: Guest) throws -> Bool {
+        let errorFree = isSubmissionErrorFree(entrant: entrant)
+        return errorFree
     }
 }
 

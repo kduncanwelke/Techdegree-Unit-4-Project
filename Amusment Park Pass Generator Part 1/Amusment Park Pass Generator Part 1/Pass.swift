@@ -10,8 +10,7 @@ import Foundation
 
 // classic pass, base
 class Pass {
-    let firstName: String
-    let lastName: String
+    let entrant: Entrant
     
     let rideAccess = true
     let amusementAccess = true
@@ -23,26 +22,24 @@ class Pass {
     var foodDiscount: Int { return 0 }
     var merchandiseDiscount: Int { return 0 }
     
-    var passType: String { return "Classic Pass" }
+    var passType: String { return PassType.ClassicPass.rawValue }
     
-    init(firstName: String, lastName: String) {
-        self.firstName = firstName
-        self.lastName = lastName
+    init(entrant: Entrant) {
+        self.entrant = entrant
     }
 }
 
 // VIP pass
-class VipPass: Pass{
+class VipPass: Pass {
     override var skipRideLines: Bool { return true }
     override var foodDiscount: Int { return 10 }
     override var merchandiseDiscount: Int { return 20 }
-    override var passType: String { return "VIP Pass" }
+    override var passType: String { return PassType.VIPPass.rawValue }
 }
 
 // free child pass
 class FreeChildPass: Pass {
-    // add error handling if birthday is lacking/makes the child older than 5
-     override var passType: String { return "Free Child Pass" }
+     override var passType: String { return PassType.FreeChildPass.rawValue }
 }
 
 // food services employee pass
@@ -50,15 +47,15 @@ class FoodServicePass: Pass {
     override var kitchenAccess: Bool { return true }
     override var foodDiscount: Int { return 15 }
     override var merchandiseDiscount: Int { return 25 }
-    override var passType: String { return "Food Services Employee Pass" }
+    override var passType: String { return PassType.FoodServicePass.rawValue }
 }
 
 // ride services employee pass
-class RideServicesPass: Pass  {
+class RideServicesPass: Pass {
     override var rideControlAccess: Bool { return true }
     override var foodDiscount: Int { return 15 }
     override var merchandiseDiscount: Int { return 25 }
-    override var passType: String { return "Ride Services Employee Pass" }
+    override var passType: String { return PassType.RideServicePass.rawValue }
 }
 
 // maintenance employee pass
@@ -68,7 +65,7 @@ class MaintenancePass: Pass {
     override var maintenanceAccess: Bool { return true }
     override var foodDiscount: Int { return 15 }
     override var merchandiseDiscount: Int { return 25 }
-    override var passType: String { return "Maintenance Employee Pass" }
+    override var passType: String { return PassType.MaintenancePass.rawValue }
 }
 
 // manager pass
@@ -79,10 +76,7 @@ class ManagerPass: Pass {
     override var maintenanceAccess: Bool { return true }
     override var foodDiscount: Int { return 25 }
     override var merchandiseDiscount: Int { return 25 }
-    override var passType: String { return "Manager Pass" }
+    override var passType: String { return PassType.ManagerPass.rawValue }
 }
-
-
-
 
 

@@ -8,4 +8,17 @@
 
 import Foundation
 
+protocol EntrantRegistration {
+}
 
+protocol GuestRegistration: EntrantRegistration {
+    func confirmEntrant(entrant: Guest) throws -> Bool
+    func checkRequirements(entrant: Guest) throws
+    func isSubmissionErrorFree(entrant: Guest) -> Bool
+}
+
+protocol EmployeeRegistration: EntrantRegistration {
+    func confirmEntrant(entrant: Employee) throws -> Bool
+    func checkRequirements(entrant: Employee) throws
+    func isSubmissionErrorFree(entrant: Employee) -> Bool
+}
