@@ -10,13 +10,11 @@ import Foundation
 
 extension Guest {
     func checkRequirements(entrant: Guest) throws {
-        guard case entrant.firstName = firstName else {
+        if entrant.firstName == "" {
             throw GuestRegistrationErrors.invalidFirstName
-        }
-        guard case entrant.lastName = lastName else {
+        } else if entrant.lastName == "" {
             throw GuestRegistrationErrors.invalidLastName
-        }
-        if entrant.type == .FreeChild {
+        } else if entrant.type == .FreeChild {
             if entrant.birthday == nil {
                 throw GuestRegistrationErrors.noFreeChildBirthday
             } else if entrant.birthday!.timeIntervalSinceNow > 5 {
@@ -45,25 +43,22 @@ extension Guest {
             print("\(error)")
             return false
         }
+        print("error free")
         return true
     }
 }
 
 extension Employee {
     func checkRequirements(entrant: Employee) throws {
-        guard case entrant.firstName = firstName else {
+        if entrant.firstName == "" {
             throw EmployeeRegistrationErrors.invalidFirstName
-        }
-        guard case entrant.lastName = lastName else {
+        } else if entrant.lastName == "" {
             throw EmployeeRegistrationErrors.invalidLastName
-        }
-        guard case entrant.streetAddress = streetAddress else {
+        } else if entrant.streetAddress == ""  {
             throw EmployeeRegistrationErrors.invalidAddress
-        }
-        guard case entrant.city = city else {
+        } else if entrant.city == ""  {
             throw EmployeeRegistrationErrors.invalidCity
-        }
-        guard case entrant.state = state else {
+        } else if entrant.state == "" {
             throw EmployeeRegistrationErrors.invalidState
         }
         // don't need check for zipcode because init will not succeed without it
@@ -91,8 +86,7 @@ extension Employee {
             print("\(error)")
             return false
         }
+        print("error free")
         return true
     }
 }
-
-

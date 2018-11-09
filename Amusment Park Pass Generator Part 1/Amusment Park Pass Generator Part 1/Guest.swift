@@ -21,12 +21,8 @@ class Guest: Entrant, GuestRegistration {
         
         super.init(firstName: firstName, lastName: lastName)
     }
-    
-    func confirmEntrant(entrant: Guest) throws -> Bool {
-        let errorFree = isSubmissionErrorFree(entrant: entrant)
-        return errorFree
-    }
 }
+
 
 enum GuestType {
     case Classic

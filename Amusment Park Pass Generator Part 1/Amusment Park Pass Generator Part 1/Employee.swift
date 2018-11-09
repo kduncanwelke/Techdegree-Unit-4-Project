@@ -25,11 +25,6 @@ class Employee: Entrant, EmployeeRegistration {
         
         super.init(firstName: firstName, lastName: lastName)
     }
-    
-    func confirmEntrant(entrant: Employee) throws -> Bool {
-        let errorFree = isSubmissionErrorFree(entrant: entrant)
-        return errorFree
-    }
 }
 
 enum EmployeeType {

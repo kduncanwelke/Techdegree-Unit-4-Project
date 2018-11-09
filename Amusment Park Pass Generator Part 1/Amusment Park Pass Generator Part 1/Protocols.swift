@@ -12,13 +12,13 @@ protocol EntrantRegistration {
 }
 
 protocol GuestRegistration: EntrantRegistration {
-    func confirmEntrant(entrant: Guest) throws -> Bool
     func checkRequirements(entrant: Guest) throws
     func isSubmissionErrorFree(entrant: Guest) -> Bool
+    func generatePass(entrant: Guest) -> Pass?
 }
 
 protocol EmployeeRegistration: EntrantRegistration {
-    func confirmEntrant(entrant: Employee) throws -> Bool
     func checkRequirements(entrant: Employee) throws
     func isSubmissionErrorFree(entrant: Employee) -> Bool
+    func generatePass(entrant: Employee) -> Pass?
 }
