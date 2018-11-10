@@ -16,14 +16,14 @@ class Employee: Entrant, EmployeeRegistration {
     let state: String
     let zipCode: Int
     
-    init(type: EmployeeType, streetAddress: String, city: String, state: String, zipCode: Int, firstName: String, lastName: String) {
+    init(type: EmployeeType, streetAddress: String, city: String, state: String, zipCode: Int, firstName: String, lastName: String, birthday: String?) {
         self.type = type
         self.streetAddress = streetAddress
         self.city = city
         self.state = state
         self.zipCode = zipCode
         
-        super.init(firstName: firstName, lastName: lastName)
+        super.init(firstName: firstName, lastName: lastName, birthday: birthday)
     }
 }
 

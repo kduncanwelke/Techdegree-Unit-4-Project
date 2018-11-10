@@ -9,6 +9,7 @@
 import Foundation
 
 extension Guest {
+    // check that all required values are present
     func checkRequirements(entrant: Guest) throws {
         if entrant.firstName == "" {
             throw GuestRegistrationErrors.invalidFirstName
@@ -17,13 +18,16 @@ extension Guest {
         } else if entrant.type == .FreeChild {
             if entrant.birthday == nil {
                 throw GuestRegistrationErrors.noFreeChildBirthday
-            } else if entrant.birthday!.timeIntervalSinceNow > 5 {
+            } else if let age = checkAge(birthdayDate: birthday) {
+                if age > 5 {
                 // birthday was checked for nil so force unwrap is safe
                 throw GuestRegistrationErrors.invalidFreeChildBirthday
+                }
             }
         }
     }
     
+    // run above function and throw errors
     func isSubmissionErrorFree(entrant: Guest) -> Bool {
         do {
             try checkRequirements(entrant: entrant)
@@ -48,7 +52,9 @@ extension Guest {
     }
 }
 
+
 extension Employee {
+    // check that all required values are present
     func checkRequirements(entrant: Employee) throws {
         if entrant.firstName == "" {
             throw EmployeeRegistrationErrors.invalidFirstName
@@ -64,6 +70,7 @@ extension Employee {
         // don't need check for zipcode because init will not succeed without it
     }
     
+    // run above function and throw errors
     func isSubmissionErrorFree(entrant: Employee) -> Bool {
         do {
             try checkRequirements(entrant: entrant)

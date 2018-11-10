@@ -11,8 +11,13 @@ import Foundation
 class Entrant {
     var firstName: String
     var lastName: String
+    var birthday: String?
     
-    init(firstName: String, lastName: String) {
+    init(firstName: String, lastName: String, birthday: String? = nil) {
+        if let birthday = birthday {
+            self.birthday = birthday
+        }
+        
         self.firstName = firstName
         self.lastName = lastName
     }

@@ -11,6 +11,8 @@ import Foundation
 protocol EntrantRegistration {
 }
 
+// different implementations for each subclass of entrant
+
 protocol GuestRegistration: EntrantRegistration {
     func checkRequirements(entrant: Guest) throws
     func isSubmissionErrorFree(entrant: Guest) -> Bool

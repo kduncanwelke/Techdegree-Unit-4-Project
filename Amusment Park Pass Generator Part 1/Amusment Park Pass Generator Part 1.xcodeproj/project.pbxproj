@@ -20,6 +20,7 @@
 		2DCAFBBC218CF71F00441BE9 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBBB218CF71F00441BE9 /* Pass.swift */; };
 		2DCAFBBE218D081A00441BE9 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBBD218D081A00441BE9 /* Guest.swift */; };
 		2DCAFBC0218D083D00441BE9 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBBF218D083D00441BE9 /* Employee.swift */; };
+		2DDCCFCD2197781C009EFBDC /* DateLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDCCFCC2197781C009EFBDC /* DateLogic.swift */; };
 		2DF4C1A92195061800BA4862 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4C1A82195061800BA4862 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		2DCAFBBB218CF71F00441BE9 /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		2DCAFBBD218D081A00441BE9 /* Guest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
 		2DCAFBBF218D083D00441BE9 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		2DDCCFCC2197781C009EFBDC /* DateLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLogic.swift; sourceTree = "<group>"; };
 		2DF4C1A82195061800BA4862 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,8 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				2DCAFBA7218CF6F500441BE9 /* AppDelegate.swift */,
-				2DCAFBA9218CF6F500441BE9 /* ViewController.swift */,
 				2DCAFBAB218CF6F500441BE9 /* Main.storyboard */,
+				2DCAFBA9218CF6F500441BE9 /* ViewController.swift */,
 				2D93CFEF2192366B00C996AC /* Errors.swift */,
 				2D93CFF121924BED00C996AC /* Protocols.swift */,
 				2DCAFBB9218CF71600441BE9 /* Entrant.swift */,
@@ -84,6 +86,7 @@
 				2DCAFBBB218CF71F00441BE9 /* Pass.swift */,
 				2D9EE40F2193973B00F9132B /* PassTypes.swift */,
 				2D664A812196150E00245F51 /* PassLogic.swift */,
+				2DDCCFCC2197781C009EFBDC /* DateLogic.swift */,
 				2DCAFBAE218CF6F500441BE9 /* Assets.xcassets */,
 				2DCAFBB0218CF6F500441BE9 /* LaunchScreen.storyboard */,
 				2DCAFBB3218CF6F500441BE9 /* Info.plist */,
@@ -169,6 +172,7 @@
 				2DF4C1A92195061800BA4862 /* Extensions.swift in Sources */,
 				2DCAFBC0218D083D00441BE9 /* Employee.swift in Sources */,
 				2D664A822196150E00245F51 /* PassLogic.swift in Sources */,
+				2DDCCFCD2197781C009EFBDC /* DateLogic.swift in Sources */,
 				2DCAFBBC218CF71F00441BE9 /* Pass.swift in Sources */,
 				2DCAFBBA218CF71600441BE9 /* Entrant.swift in Sources */,
 				2DCAFBAA218CF6F500441BE9 /* ViewController.swift in Sources */,

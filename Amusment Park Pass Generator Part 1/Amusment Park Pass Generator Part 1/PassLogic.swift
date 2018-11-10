@@ -8,13 +8,12 @@
 
 import Foundation
 
+// pass generation, running check for submission errors before creation
 extension Guest {
     func generatePass(entrant: Guest) -> Pass? {
         let success = entrant.isSubmissionErrorFree(entrant: entrant)
         if success {
             let pass = Pass(entrant: entrant)
-            let result = swipe(pass: pass, forAccessTo: .Amusements)
-            print("\(result)")
             return pass
         } else {
             print("Submission not error free, pass not generated")
@@ -28,8 +27,6 @@ extension Employee {
         let success = entrant.isSubmissionErrorFree(entrant: entrant)
         if success {
             let pass = Pass(entrant: entrant)
-            let result = swipe(pass: pass, forAccessTo: .Amusements)
-            print("\(result)")
             return pass
         } else {
             print("Submission not error free, pass not generated")
@@ -38,7 +35,18 @@ extension Employee {
     }
 }
 
+// swipe function, checks for birthday and access to given access point
 func swipe(pass: Pass, forAccessTo: AccessPoint) -> Bool {
+    let viewController = ViewController()
+    guard viewController.seconds == 0 else {
+        print("Your pass cannot be swiped again immediately - please pause and try again.")
+        return false
+    }
+    
+    // run timer to ensure pass is not swiped within 5 seconds
+    viewController.runTimer()
+    
+    checkForBirthday(personWithPass: pass)
     switch forAccessTo {
     case .Rides:
         if pass.rideAccess == true {

@@ -8,11 +8,13 @@
 
 import Foundation
 
+// Entrant registration errors
 enum RegistrationErrors: Error {
     case invalidFirstName
     case invalidLastName
 }
 
+// Guest registration errors
 enum GuestRegistrationErrors: Error {
     case invalidFirstName
     case invalidLastName
@@ -20,6 +22,7 @@ enum GuestRegistrationErrors: Error {
     case invalidFreeChildBirthday
 }
 
+// Employee registration errors
 enum EmployeeRegistrationErrors: Error {
     case invalidFirstName
     case invalidLastName
