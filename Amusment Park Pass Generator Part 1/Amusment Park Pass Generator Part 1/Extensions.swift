@@ -15,7 +15,9 @@ extension Guest {
             throw GuestRegistrationErrors.invalidFirstName
         } else if entrant.lastName == "" {
             throw GuestRegistrationErrors.invalidLastName
-        } else if entrant.type == .FreeChild {
+        }
+        switch entrant.type {
+        case .FreeChild:
             if entrant.birthday == nil {
                 throw GuestRegistrationErrors.noFreeChildBirthday
             } else if let age = checkAge(birthdayDate: birthday) {
@@ -24,6 +26,8 @@ extension Guest {
                 throw GuestRegistrationErrors.invalidFreeChildBirthday
                 }
             }
+        default:
+            break
         }
     }
     
@@ -49,6 +53,47 @@ extension Guest {
         }
         print("error free")
         return true
+    }
+    
+    // run when checking freechild age, converting entered string into date
+    func checkAge(birthdayDate: String?) -> Int? {
+        let date = Date()
+        
+        guard let birthday = birthdayDate else {
+            print("No birthday supplied for age check")
+            return nil
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let dateFromString = dateFormatter.date(from: birthday)
+        
+        guard let convertedDate = dateFromString else {
+            print("Date not convertable")
+            return nil
+        }
+        
+        // perform math with produced date compared to current date
+        guard let difference = Calendar.current.dateComponents([.day], from: convertedDate, to: date).day else {
+            print("Calculation failed")
+            return nil
+        }
+        let age = difference / 365
+        
+        print("\(age)")
+        return age
+        
+    }
+    
+    func generatePass(entrant: Guest) -> Pass? {
+        let success = entrant.isSubmissionErrorFree(entrant: entrant)
+        if success {
+            let pass = Pass(entrant: entrant)
+            return pass
+        } else {
+            print("Submission not error free, pass not generated")
+            return nil
+        }
     }
 }
 
@@ -95,5 +140,16 @@ extension Employee {
         }
         print("error free")
         return true
+    }
+    
+    func generatePass(entrant: Employee) -> Pass? {
+        let success = entrant.isSubmissionErrorFree(entrant: entrant)
+        if success {
+            let pass = Pass(entrant: entrant)
+            return pass
+        } else {
+            print("Submission not error free, pass not generated")
+            return nil
+        }
     }
 }
